@@ -71,9 +71,23 @@ void loop() {
   
   display.display(); 
 
-  if (t < 20) digitalWrite(ledpin13, HIGH); // IF TEMP IS UNDER 20 SET PIN 13 TO HIGH. GREEN LED
 
-  if (t > 20, t < 25) digitalWrite(ledpin11, HIGH); // IF TEMP IS GREATER THAN 20 SET PIN 11 TO HIGH. AMBER LED
+  // LED CONTROL
+  if (t < 20){
+    digitalWrite(ledpin13, HIGH);
+    digitalWrite(ledpin12, LOW);
+    digitalWrite(ledpin11, LOW);
+  }
 
-  if (t > 25) digitalWrite(ledpin12, HIGH); // IF TEMP IS OVER 25 SET PIN 12 TO HIGH. RED LED
+  else if (t > 20, t < 25){
+    digitalWrite(ledpin11, HIGH);
+    digitalWrite(ledpin12, LOW);
+    digitalWrite(ledpin13, LOW);
+  }
+
+  else if (t > 25){
+    digitalWrite(ledpin12, HIGH); 
+    digitalWrite(ledpin13, LOW);
+    digitalWrite(ledpin11, LOW);
+  }
 }
